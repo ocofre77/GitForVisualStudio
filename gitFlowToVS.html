@@ -2,22 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<style type="text/css">
-		section {
-			border: 1px solid navy;
-			border-radius: 1em;
-			padding: 1em;
-			margin: 1em;
-		}
-
-		h1,h2,h3 {
-			color: navy;
-		}
-
-		h3{ 
-			font-style: italic;
-		}
-	</style>
+	<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
@@ -30,6 +15,9 @@ funcionalidad exacta que los scripts de GitFlow.
 	</p>
 
 
+	<article>
+		
+	
 	<h2>Instalación</h2>
 	<p>
 		Encontrará la extensión en la Galería de Visual Studio, solo busque GitFlow en la ventana de Extensión y Actualizaciones. O bien, descárguelo de <a href="https://marketplace.visualstudio.com/">https://marketplace.visualstudio.com/</a>. Nota: La extensión requiere Visual Studio 2013 Update 3 o superior
@@ -66,8 +54,10 @@ funcionalidad exacta que los scripts de GitFlow.
 		Aquí puede saber qué comando de gitflow se utilizó y cuál es su resultado:		
 	</p>
 	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_10.png" width="356" height="148">
+	</article>
 
 	<!-- Features -->
+	<article>
 	<h2>Trabajando con Características - Features</h2>
 	<p>
 		A partir de ahora, la extensión mostrará las acciones recomendadas en función de la rama en la que se encuentre actualmente. Después de inicializar el repositorio, estará en la rama de desarrollo , por lo que desde aquí normalmente debería iniciar una nueva característica, versión o bifurcación de revisión.
@@ -112,12 +102,42 @@ funcionalidad exacta que los scripts de GitFlow.
 	<p>
 		Como puede ver, si pasa el mouse sobre una característica obtendrá más detalles sobre ella, y si hace clic derecho sobre ella, puede (dependiendo del estado), verificar, rastrear o publicar la rama de características. 
 	</p>
+	</article>
 
+
+<article>
 
 	<h2>Crear Liberación - Release</h2>
+	<p>
+		Creación de rama Release, esta operación toma la ultima versión de la rama <code>develop</code> y de ella crea la nueva rama <code>release</code> y se ubica en la rama creada.
+	</p>
+	<img src="img/createRelease.png" alt="">
+	<img src="img/createdRelease.png" alt="">
+	<p>Guardando cambios en la rama release</p>
+	<img src="img/changesetRelease.png" alt="">
+	<p>Finalizando rama release, GitFlow nos permite realizar alguna opciones despues de finalizar (borrar rama, forzar borrado, publicar en rama remota, no merge hacia atrás), las cuales podemos activar o desactivar. Finalmente GitFlow nos ubica en la rama <code>develop</code></p>
+	<img src="img/finishRelease.png" alt="">
+
+</article>
+
+
+<article>
 	
 	<h2>Crear Revisión - Hotfix</h2>
-	
+
+	<p>
+		Creación de rama Hotfix, esta operación toma la ultima versión de la rama <code>master</code> y de ella crea la nueva rama <code>hotfix</code> y se ubica en la rama creada.
+	</p>
+	<img src="img/createHotfix.png" alt="">
+	<img src="img/createdHotfix0.png" alt="">
+	<p>Guardando cambios en la rama Hotfix</p>
+	<img src="img/changsetHotfix.png" alt="">
+	<p>Finalizando rama release, GitFlow nos permite realizar alguna opciones despues de finalizar (borrar rama, forzar borrado, publicar en rama remota, no merge hacia atrás), las cuales podemos activar o desactivar. Finalmente GitFlow nos ubica en la rama <code>develop</code></p>
+	<img src="img/finishHotfix.png" alt="">
+
+
+</article>	
+
 </section>
 
 

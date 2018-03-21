@@ -23,519 +23,632 @@
 		Utilice repositorios Git para alojar y colaborar en su código utilizando Visual Studio Team Services (VSTS) o Team Foundation Server (TFS).
 	</p>
 
-	<article>
+		<article>
 
-		<h2>Clona un repositorio existente de Git</h2>
-		<p>
-			Cree una copia local completa de un repositorio existente de Git clonándolo. Al clonar un repos, se descargan todas las confirmaciones y ramas en el repositorio y se establece una relación con el repositorio existente que se clonó. Use esta relación para interactuar con el repositorio existente, presionando y tirando de los cambios para compartir el código con su equipo.
-		</p>
-		<h3>Obtenga la URL de clon de su repositorio</h3>
-		<p>
-			Si está utilizando VSTS o Team Foundation Server 2017, puede encontrar esta URL clonada en el portal web. Al ver su repositorio desde la pestaña Código en la interfaz, seleccione Clonar en la esquina superior derecha.
-		</p>
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/get_clone_url.gif" alt="Obtener un clon de una URL de VSTS" data-linktype="relative-path" class="x-hidden-focus">
+			<h2>Clona un repositorio existente de Git</h2>
+			<p>
+				Cree una copia local completa de un repositorio existente de Git clonándolo. Al clonar un repos, se descargan todas las confirmaciones y ramas en el repositorio y se establece una relación con el repositorio existente que se clonó. Use esta relación para interactuar con el repositorio existente, presionando y tirando de los cambios para compartir el código con su equipo.
+			</p>
+			<h3>Obtenga la URL de clon de su repositorio</h3>
+			<p>
+				Si está utilizando VSTS o Team Foundation Server 2017, puede encontrar esta URL clonada en el portal web. Al ver su repositorio desde la pestaña Código en la interfaz, seleccione Clonar en la esquina superior derecha.
+			</p>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/get_clone_url.gif" alt="Obtener un clon de una URL de VSTS" data-linktype="relative-path" class="x-hidden-focus">
 
-		
-		<h3>Clonar un repositorio</h3>
-		<h4>Clon de VSTS / Team Foundation Server</h4>
+			
+			<h3>Clonar un repositorio</h3>
+			<h4>Clon de VSTS / Team Foundation Server</h4>
 
-		<ol>
-			<li>
-				<p>Abra Team Explorer (vaya a Ver y seleccione Team Explorer o utilice la secuencia de teclas de acceso rápido Ctrl +, Ctrl + M) y abra la vista Conectar . Vaya a Proyectos , luego Administre conexiones si no ve la vista Conectar.</p>
-			</li>
-			<li>
-				<p>Seleccione Connect ... en Hosted Service Providers .</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/connect_to_vsts_from_vs2015.png" alt="Conectando a VSTS" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Elija la cuenta de su equipo desde el menú desplegable en el cuadro de diálogo que aparece y seleccione qué proyectos de equipo conectar con Team Explorer. Seleccione Connect .</p>
-			</li>
-			<li>
-				<p>Clonar el repositorio en uno de los proyectos de equipo haciendo clic derecho en el proyecto y seleccionando Clonar ... .</p>
-			</li>
-			<li>
-				<p>Ingrese la carpeta donde Git almacenará el repositorio local en la sección de Repositorios locales de Git .</p>
-			</li>
-			<li>
-				<p>Seleccione Clon para clonar su repositorio.</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/_shared/_img/clonevsrepo.png" alt="Clonación de un repositorio de VSTS en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
+			<ol>
+				<li>
+					<p>Abra Team Explorer (vaya a Ver y seleccione Team Explorer o utilice la secuencia de teclas de acceso rápido Ctrl +, Ctrl + M) y abra la vista Conectar . Vaya a Proyectos , luego Administre conexiones si no ve la vista Conectar.</p>
+				</li>
+				<li>
+					<p>Seleccione Connect ... en Hosted Service Providers .</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/connect_to_vsts_from_vs2015.png" alt="Conectando a VSTS" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Elija la cuenta de su equipo desde el menú desplegable en el cuadro de diálogo que aparece y seleccione qué proyectos de equipo conectar con Team Explorer. Seleccione Connect .</p>
+				</li>
+				<li>
+					<p>Clonar el repositorio en uno de los proyectos de equipo haciendo clic derecho en el proyecto y seleccionando Clonar ... .</p>
+				</li>
+				<li>
+					<p>Ingrese la carpeta donde Git almacenará el repositorio local en la sección de Repositorios locales de Git .</p>
+				</li>
+				<li>
+					<p>Seleccione Clon para clonar su repositorio.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/_shared/_img/clonevsrepo.png" alt="Clonación de un repositorio de VSTS en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
-	</article>	
-
-
-	<article>
-		<h2>Guarde Trabajo con Commits</h2>
-		<p>Git no realiza instantáneamente un snapshot de tu código cuando realizas cambios en los archivos de tu repositorio. Debe informar a Git exactamente qué cambios desea agregar a la siguiente instantánea organizando esos cambios. Después de organizar sus cambios, cree un compromiso para guardar la instantánea en su repositorio.</p>
-		
-		<h3>Cómo sigue los cambios de Git</h3>
-		<p>
-			Git rastrea los cambios de archivos en su repositorio mientras trabaja, y separa los archivos en su repositorio en tres categorías:
-		</p>
-
-		<ul>
-			<li>
-				<p>Archivos no modificados: estos archivos no han cambiado desde su última confirmación.</p>
-			</li>
-			<li>
-				<p>Archivos modificados: estos archivos tienen cambios desde su última confirmación, pero aún no se han organizado para la siguiente confirmación.</p>
-			</li>
-			<li>
-				<p>Archivos en etapas: estos archivos tienen cambios que se agregarán a la próxima confirmación. </p>
-			</li>
-		</ul>
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/git_file_status_lifecycle.png" alt="Lifecyle de archivos en su repositorio entre los tres estados" data-linktype="relative-path" class="x-hidden-focus">
-
-		<p>
-			Cuando crea una confirmación, solo los cambios por etapas y los archivos sin cambios se usan para la instantánea. Se conservan los cambios en los archivos modificados pero no modificados, pero la confirmación utiliza la versión no modificada de la confirmación anterior en su instantánea.
-		</p>
-		<p>
-			Los commits se crean en su repositorio local de Git, por lo que no debe preocuparse de que sus cambios sean perfectos. Continúa creando commits mientras trabajas, impulsando tus cambios al equipo cuando estén listos para compartir.
-		</p>
+		</article>	
 
 
-		<h3>Qué hay en un commit</h3>
+		<article>
+			<h2>Guarde Trabajo con Commits</h2>
+			<p>Git no realiza instantáneamente un snapshot de tu código cuando realizas cambios en los archivos de tu repositorio. Debe informar a Git exactamente qué cambios desea agregar a la siguiente instantánea organizando esos cambios. Después de organizar sus cambios, cree un compromiso para guardar la instantánea en su repositorio.</p>
+			
+			<h3>Cómo sigue los cambios de Git</h3>
+			<p>
+				Git rastrea los cambios de archivos en su repositorio mientras trabaja, y separa los archivos en su repositorio en tres categorías:
+			</p>
 
-		<p>
-			Los compromisos incluyen la siguiente información:
-		</p>
+			<ul>
+				<li>
+					<p>Archivos no modificados: estos archivos no han cambiado desde su última confirmación.</p>
+				</li>
+				<li>
+					<p>Archivos modificados: estos archivos tienen cambios desde su última confirmación, pero aún no se han organizado para la siguiente confirmación.</p>
+				</li>
+				<li>
+					<p>Archivos en etapas: estos archivos tienen cambios que se agregarán a la próxima confirmación. </p>
+				</li>
+			</ul>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/git_file_status_lifecycle.png" alt="Lifecyle de archivos en su repositorio entre los tres estados" data-linktype="relative-path" class="x-hidden-focus">
 
-		<ul>
-			<li>
-				<p>Una instantánea de los archivos guardados en la confirmación. Git toma instantáneas del contenido de todos los archivos de tu repositorio en el momento de la confirmación: esto hace que cambiar de versión sea muy rápido y ayuda a Git a fusionar los cambios.</p>
-			</li>
-			<li>
-				<p>Una referencia a los commit (s) padre (s). Los compromisos con padres múltiples ocurren cuando las ramas se fusionan.</p>
-			</li>
-			<li>
-				<p>Un mensaje corto y al punto que describe los cambios en la confirmación. Ingrese este mensaje cuando crea la confirmación.</p>
-			</li>
-		</ul>
-
-		<p>
-			Git usa las referencias entre confirmaciones junto con las instantáneas de archivos para mantener un registro completo de desarrollo en su repositorio.
-		</p>
-
-		<h3>Etapa tus cambios</h3>
-
-		<p>
-			Git no agrega automáticamente los archivos cambiados a la instantánea cuando crea una confirmación. Primero debe realizar una etapa de los cambios para que Git sepa qué actualizaciones desea agregar a la siguiente confirmación. La clasificación por etapas le permite agregar archivos de forma selectiva a una confirmación mientras excluye los cambios realizados en otros archivos.
-		</p>
-
-
-		<p>
-			Ignore los archivos temporales, los registros y otros archivos que puedan cambiar en su máquina local, pero no desea agregarlos al control de la versión.
-		</p>
-
-		<h4>Visual Studio 2015 (Actualización 2) y 2017</h4>
-
-		<p>
-			Visual Studio realiza un seguimiento de los cambios de archivos en su proyecto a medida que hace su trabajo. Cuando esté listo para realizar cambios, abra la vista Cambios en Team Explorer.
-		</p>
-
-		<p> 
-			Modifique los cambios de archivos individuales haciendo clic con el botón derecho en un archivo en la vista Cambiar y seleccionando Etapa . Organizar un cambio crea una sección de cambios por etapas en Team Explorer. Solo los cambios en la sección Cambios en etapas se agregan a la siguiente confirmación.
-		</p>
-
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vs-stage-files.gif" alt="Stage files for your next commit using Team Explorer" data-linktype="relative-path" class="x-hidden-focus">
-
-		<p>
-			Ponga en escena varios archivos o carpetas seleccionándolos, luego haga clic con el botón derecho y elija Etapa o arrastrando y soltando archivos de la lista Cambios en la lista Cambios por etapas .
-		</p>
-
-		<p>
-			Ignore los archivos haciendo clic con el botón derecho y seleccionando Ignorar este elemento local o Ignorar esta extensión . Esto agrega una entrada al archivo al archivo .gitignore en su repositorio local. Si el archivo ignorado se agregó a su repositorio en una confirmación anterior, ignorar el archivo no lo eliminará de la lista de Cambios
-		</p>
+			<p>
+				Cuando crea una confirmación, solo los cambios por etapas y los archivos sin cambios se usan para la instantánea. Se conservan los cambios en los archivos modificados pero no modificados, pero la confirmación utiliza la versión no modificada de la confirmación anterior en su instantánea.
+			</p>
+			<p>
+				Los commits se crean en su repositorio local de Git, por lo que no debe preocuparse de que sus cambios sean perfectos. Continúa creando commits mientras trabajas, impulsando tus cambios al equipo cuando estén listos para compartir.
+			</p>
 
 
+			<h3>Qué hay en un commit</h3>
 
-		<h3>Crear un commit</h3>
+			<p>
+				Los compromisos incluyen la siguiente información:
+			</p>
 
-		<p>
-			Abra la vista de Cambios en Team Explorer.
-		</p>
+			<ul>
+				<li>
+					<p>Una instantánea de los archivos guardados en la confirmación. Git toma instantáneas del contenido de todos los archivos de tu repositorio en el momento de la confirmación: esto hace que cambiar de versión sea muy rápido y ayuda a Git a fusionar los cambios.</p>
+				</li>
+				<li>
+					<p>Una referencia a los commit (s) padre (s). Los compromisos con padres múltiples ocurren cuando las ramas se fusionan.</p>
+				</li>
+				<li>
+					<p>Un mensaje corto y al punto que describe los cambios en la confirmación. Ingrese este mensaje cuando crea la confirmación.</p>
+				</li>
+			</ul>
 
-		<p>
-			Ingrese un mensaje de confirmación que describa sus cambios y seleccione Confirmar por etapas para crear una nueva confirmación que incluya los cambios enumerados en la sección Cambios por etapas .
-		</p>
+			<p>
+				Git usa las referencias entre confirmaciones junto con las instantáneas de archivos para mantener un registro completo de desarrollo en su repositorio.
+			</p>
 
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vscommit.gif" alt="Crear una confirmación de elementos por etapas en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+			<h3>Etapa tus cambios</h3>
 
-		<p>
-			Omita los archivos de etapas si solo desea confirmar todos los cambios enumerados al ingresar un mensaje de confirmación y seleccionar Commit All cuando no haya cambios escalonados.
-		</p>
-
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vscommitall.gif" alt="Confirme todos los cambios sin organizarlos primero en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
-
-		<p>
-			Cuando se compromete en Visual Studio, puede enviar la confirmación y sincronizar la rama con un repositorio remoto. Estas opciones están disponibles en el menú desplegable del botón Confirmar .
-		</p>
+			<p>
+				Git no agrega automáticamente los archivos cambiados a la instantánea cuando crea una confirmación. Primero debe realizar una etapa de los cambios para que Git sepa qué actualizaciones desea agregar a la siguiente confirmación. La clasificación por etapas le permite agregar archivos de forma selectiva a una confirmación mientras excluye los cambios realizados en otros archivos.
+			</p>
 
 
-		<h3>Actualiza tu último commit</h3>
-		<p>
-			Enmiende su último compromiso para corregir pequeños errores sin realizar un nuevo compromiso.
-		</p>
+			<p>
+				Ignore los archivos temporales, los registros y otros archivos que puedan cambiar en su máquina local, pero no desea agregarlos al control de la versión.
+			</p>
 
-		<ol>
-			<li>
-				<p>Abra la vista de Cambios en Team Explorer y organice sus cambios actualizados. Puede modificar solo el mensaje de confirmación dejando los cambios por etapas vacíos.</p>
-			</li>
-			<li>
-				<p>Ingrese el mensaje de compromiso actualizado y seleccione Modificar compromiso previo del menú desplegable Acciones .</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vs_amend_commit.png" alt="Modificar una confirmación en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
+			<h4>Visual Studio 2015 (Actualización 2) y 2017</h4>
+
+			<p>
+				Visual Studio realiza un seguimiento de los cambios de archivos en su proyecto a medida que hace su trabajo. Cuando esté listo para realizar cambios, abra la vista Cambios en Team Explorer.
+			</p>
+
+			<p> 
+				Modifique los cambios de archivos individuales haciendo clic con el botón derecho en un archivo en la vista Cambiar y seleccionando Etapa . Organizar un cambio crea una sección de cambios por etapas en Team Explorer. Solo los cambios en la sección Cambios en etapas se agregan a la siguiente confirmación.
+			</p>
+
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vs-stage-files.gif" alt="Stage files for your next commit using Team Explorer" data-linktype="relative-path" class="x-hidden-focus">
+
+			<p>
+				Ponga en escena varios archivos o carpetas seleccionándolos, luego haga clic con el botón derecho y elija Etapa o arrastrando y soltando archivos de la lista Cambios en la lista Cambios por etapas .
+			</p>
+
+			<p>
+				Ignore los archivos haciendo clic con el botón derecho y seleccionando Ignorar este elemento local o Ignorar esta extensión . Esto agrega una entrada al archivo al archivo .gitignore en su repositorio local. Si el archivo ignorado se agregó a su repositorio en una confirmación anterior, ignorar el archivo no lo eliminará de la lista de Cambios
+			</p>
 
 
 
+			<h3>Crear un commit</h3>
 
-	</article>
+			<p>
+				Abra la vista de Cambios en Team Explorer.
+			</p>
+
+			<p>
+				Ingrese un mensaje de confirmación que describa sus cambios y seleccione Confirmar por etapas para crear una nueva confirmación que incluya los cambios enumerados en la sección Cambios por etapas .
+			</p>
+
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vscommit.gif" alt="Crear una confirmación de elementos por etapas en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+
+			<p>
+				Omita los archivos de etapas si solo desea confirmar todos los cambios enumerados al ingresar un mensaje de confirmación y seleccionar Commit All cuando no haya cambios escalonados.
+			</p>
+
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vscommitall.gif" alt="Confirme todos los cambios sin organizarlos primero en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+
+			<p>
+				Cuando se compromete en Visual Studio, puede enviar la confirmación y sincronizar la rama con un repositorio remoto. Estas opciones están disponibles en el menú desplegable del botón Confirmar .
+			</p>
+
+
+			<h3>Actualiza tu último commit</h3>
+			<p>
+				Enmiende su último compromiso para corregir pequeños errores sin realizar un nuevo compromiso.
+			</p>
+
+			<ol>
+				<li>
+					<p>Abra la vista de Cambios en Team Explorer y organice sus cambios actualizados. Puede modificar solo el mensaje de confirmación dejando los cambios por etapas vacíos.</p>
+				</li>
+				<li>
+					<p>Ingrese el mensaje de compromiso actualizado y seleccione Modificar compromiso previo del menú desplegable Acciones .</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vs_amend_commit.png" alt="Modificar una confirmación en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
 
 
-	<article>
-	
-		<h2>Crear trabajo en Branches</h2>
 
-		<h2>Actualizar código con fetch y pull</h2>
-		<p>Actualice el código en su repositorio local con los cambios de otros miembros de su equipo utilizando los siguientes comandos:</p>
-		<ul>
-			<li><code>fetch</code> , que descarga los cambios de su repositorio remoto pero no los aplica a su código.</li>
-			<li><code>merge</code>, que aplica los cambios tomados fetcha una sucursal en su repositorio local.</li>
-			<li><code>pull</code>, que es un comando combinado que hace a fetchy luego a merge.</li>
-		</ul>
-		<p>En este tutorial, aprenderá a:</p>
-		<ul>
-			<li>Descargue los cambios con <code>fetch</code></li>
-			<li>Actualizar sucursales con <code>merge</code></li>
-			<li>Obtener y fusionar con <code>pull</code></li>
-			<li>Actualice su rama local con los últimos cambios desde master</li>
-		</ul>
+		</article>
 
-	    <a class="playButton mouseClick" href="https://sec.ch9.ms/ch9/8d46/c177af05-969e-4bf1-ab67-7cd5fe978d46/GitTutorialPull_high.mp4" >
-	        <div class="play">Play Git Tutorial: Pull</div>
-	    </a>
 
-		<h3>Descargue los cambios con fetch</h3>
-		<p>Fetch no fusiona ningún cambio en sus sucursales locales, solo descarga las nuevas confirmaciones para su revisión</p>
-		<p>Visual Studio usa la vista <b>Sync</b> en Team Explorer para realizar fetchcambios. Los cambios descargados por fetch no se aplican hasta que <b>Pull</b> o <b>Sync</b> los cambios.</p>
+		<article>
+			<h2>Crear trabajo en Branches</h2>
 
-		<ol>
-			<li><p>Abra la vista Sincronización en Team Explorer seleccionando el ícono <b>Home</b> y eligiendo <b>Sync</b></p> 
-			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/synchronization-menu.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li><p>Elija <b>Fetch</b> para actualizar la lista de confirmaciones entrantes. (Hay dos enlaces de Fetch , uno cerca de la parte superior y el otro en la sección Incoming Commits . Puede usar cualquiera de los dos, ya que ambos hacen lo mismo).</p>
-			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/fetch.png" alt="Ha podido recuperar" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li><p>Puede revisar los resultados de la operación de <b>Fetch</b> en la sección de confirmaciones entrantes.</p>
-			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/incoming-commits.png" alt="Inbound commits" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
+			<p>
+				Las ramas de Git no son mucho más que una pequeña referencia que mantiene un historial exacto de confirmaciones, por lo que son muy baratas de crear. La realización de cambios en una sucursal no afectará a otras sucursales, y puede compartir sucursales con otras sin tener que fusionar los cambios en el proyecto principal. Cree nuevas ramas para aislar los cambios de una función o una corrección de errores de su rama principal y de otros trabajos.
+			</p>
+			<p>
+				Como las ramas son livianas, cambiar de rama es rápido y fácil. Git no crea copias múltiples de su fuente cuando trabaja con sucursales: utiliza la información del historial almacenada en commits para recrear los archivos en una rama cuando comienza a trabajar en ella. Su flujo de trabajo de Git debe crear y usar ramas para administrar las características y las correcciones de errores. El resto del flujo de trabajo de Git, como compartir código y revisar el código con solicitudes de extracción, todo funciona a través de sucursales. Aislar el trabajo en las sucursales hace que sea muy simple cambiar lo que está trabajando simplemente cambiando su rama actual.
+			</p>
 
-		<h3>Actualizar sucursales con merge</h3>
-		<p>
-			Team Explorer se fusiona cuando haces un <b>Pull</b> o <b>Sync</b> desde la vista <b>Changes</b>. <b>Sync</b> es una operación combinada de extracción de cambios remotos y luego impulso de los locales, sincronizando los commits en la rama local y remota.
-		</p>
 
-		<ol>
-			<li>
-				<p>Abra la vista Sincronización en Team Explorer seleccionando el ícono <b>Home</b> y eligiendo <b>Sync</b></p>
+			<h3>¿Cómo se crean las ramas de Git?</h3>
+
+			<p>
+				Crea ramas usando el branchcomando. Branchcrea una referencia en Git para la nueva rama y un puntero a la confirmación principal, por lo que Git puede mantener un historial de cambios a medida que agrega commits a la rama. Cuando trabajas con una sucursal compartida por otra persona, Git mantiene una relación de seguimiento ascendente para asociar la sucursal en el repositorio local con la sucursal correspondiente en el repositorio remoto. Esto hace que sea muy simple sincronizar los cambios con otros usando push y pull .
+			</p>
+
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/branch.png" alt="Visual de una rama fuera de maestro en Git" data-linktype="relative-path" class="x-hidden-focus">
+
+			<p>
+				En esta imagen, se crea una nueva rama desde la rama principal. El trabajo continúa en ambas ramas y las confirmaciones se agregan a ambas ramas.
+			</p>
+
+
+			<p>
+				Git siempre agrega nuevos commits a la rama local actual. Verifique en qué rama está trabajando antes de comprometerse para que no se realicen cambios en la rama incorrecta. Cambie entre las sucursales locales usando el checkoutcomando. Git cambiará los archivos en su computadora para que coincida con la última confirmación en la rama de salida. Cuando su trabajo en la sucursal esté listo para compartir con el resto del equipo, usted empuja los cambios para actualizar la sucursal remota.
+			</p>
+
+			<p>
+				Un error común es hacer algunos cambios y commitellos, darse cuenta de que estás en una rama incorrecta, luego checkouta la rama correcta. Sus cambios más recientes ya no estarán en el sistema de archivos ya que cada rama tiene su propia versión de código. Git devolverá el estado de los archivos al último compromiso en la rama en la que intercambió, no en la rama anterior donde realizó los cambios. Tendrá que seleccionar cuidadosamente las confirmaciones de la sucursal o fusionar los cambios en la sucursal correcta.
+			</p>
+
+			<h3>Cómo crear una rama</h3>
+
+			<ol>
+				<li>
+					<p>Abra Team Explorer y vaya a la vista Ramas.</p>
+				</li>
+				<li>
+					<p>Haga clic derecho sobre la rama padre (por lo general master) para basar sus cambios y selecciona <b>Nueva Rama Local De ...</b>.</p>
+				</li>
+				<li>
+					<p>Proporcione un nombre de sucursal en el campo requerido y haga clic en Crear sucursal . Visual Studio ejecuta automáticamente una checkouten la rama recién creada.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vsbranch.gif" alt="Creating Git Branches in Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
+
+			<h3>Cómo eliminar una rama</h3>
+
+			<ol>
+				<li>
+					<p>Abra Team Explorer y vaya a la vista Ramas.</p>
+				</li>
+				<li>
+					<p>Ubica la rama que deseas eliminar. Asegúrese de no estar desprotegido en esa sucursal, ya que no puede eliminar la sucursal en la que está trabajando actualmente.</p>
+				</li>
+				<li>
+					<p>Haga clic con el botón derecho en el nombre de la rama y seleccione Eliminar . Si tiene cambios no publicados, Visual Studio le preguntará y se asegurará de que quiera eliminar la rama para que no pierda el trabajo.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vsbranchdelete.gif" alt="Eliminar una rama en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
+
+			<h3>Usar ramas para administrar el desarrollo</h3>
+
+			<p>
+				Git realiza un seguimiento de la rama en la que está trabajando y se asegura de que cuando checkoutuna rama los archivos coinciden con la confirmación más reciente en la rama. Las ramas le permiten trabajar con múltiples versiones del código fuente en el mismo repositorio local de Git al mismo tiempo. Dile a Git con qué rama quieres trabajar checkout, y Git se encarga de configurar las versiones de archivo correctas para esa rama.
+			</p>
+
+
+			<p>
+				No debería necesitar más de un repositorio en su sistema cuando use ramas para aislar su trabajo. Configure su entorno de desarrollo una vez después de clonar , y luego use las ramas de Git para intercambiar entre el trabajo de las características y la reparación de errores.
+			</p>
+
+
+		</article>
+
+
+
+		<article>
+			<h2>Compartir código con push</h2>
+			<p>
+				Comparte los cambios realizados en commits y branches usando el comando <code>push</code>. Empuje sus ramas al repositorio remoto, donde Git toma las confirmaciones y las agrega a una sucursal existente en el control remoto o crea una nueva rama con las mismas confirmaciones que su rama local.
+			</p>
+
+			<p>
+				En Team Explorer , abra la vista Sincronización . La vista enumera los commits salientes y le presentará uno de los dos enlaces para enviarlos a su repositorio remoto:
+			</p>
+
+			<ul>
+				<li>
+					<p>
+						Publique cuando no haya una sucursal en el repositorio remoto asociado con la sucursal local actual. Esto creará una rama con el mismo nombre en el repositorio remoto y le enviará los commits. Más adelante, se presionarán , no se publicarán los cambios al usar esta rama, ya que existe la relación entre la rama en la rama local y el repositorio remoto.
+					</p>
+				</li>
+				<li>
+					<p>
+						Presione cuando exista una relación entre la sucursal local y el repositorio remoto. Al hacer clic esto se pushcomprometerá con la rama remota.
+					</p>
+				</li>
+			</ul>
+
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/vspush.gif?view=vsts" alt="Empujando cambios con Git en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+
+			<h3>Resuelva los conflictos de fusión antes de empujar</h3>
+
+			<p>
+				Si hay conflictos entre sus confirmaciones locales en las confirmaciones en la rama remota, primero debe resolver estos conflictos antes de poder impulsar sus cambios. Primero debe sacar los cambios de los demás, resolver los conflictos y confirmar los cambios, luego vuelva a intentarlo <code>push</code>.
+			</p>
+
+
+		</article>
+
+
+
+
+
+		<article>
+
+			<h2>Actualizar código con fetch y pull</h2>
+			<p>Actualice el código en su repositorio local con los cambios de otros miembros de su equipo utilizando los siguientes comandos:</p>
+			<ul>
+				<li><code>fetch</code> , que descarga los cambios de su repositorio remoto pero no los aplica a su código.</li>
+				<li><code>merge</code>, que aplica los cambios tomados fetcha una sucursal en su repositorio local.</li>
+				<li><code>pull</code>, que es un comando combinado que hace a fetchy luego a merge.</li>
+			</ul>
+			<p>En este tutorial, aprenderá a:</p>
+			<ul>
+				<li>Descargue los cambios con <code>fetch</code></li>
+				<li>Actualizar sucursales con <code>merge</code></li>
+				<li>Obtener y fusionar con <code>pull</code></li>
+				<li>Actualice su rama local con los últimos cambios desde master</li>
+			</ul>
+
+		    <a class="playButton mouseClick" href="https://sec.ch9.ms/ch9/8d46/c177af05-969e-4bf1-ab67-7cd5fe978d46/GitTutorialPull_high.mp4" >
+		        <div class="play">Play Git Tutorial: Pull</div>
+		    </a>
+
+			<h3>Descargue los cambios con fetch</h3>
+			<p>Fetch no fusiona ningún cambio en sus sucursales locales, solo descarga las nuevas confirmaciones para su revisión</p>
+			<p>Visual Studio usa la vista <b>Sync</b> en Team Explorer para realizar fetchcambios. Los cambios descargados por fetch no se aplican hasta que <b>Pull</b> o <b>Sync</b> los cambios.</p>
+
+			<ol>
+				<li><p>Abra la vista Sincronización en Team Explorer seleccionando el ícono <b>Home</b> y eligiendo <b>Sync</b></p> 
 				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/synchronization-menu.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Elija sincronización.</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/sync.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Se muestra un mensaje de confirmación cuando finaliza la operación de sincronización.</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/sync-results.png" alt="Operación de sincronización completa" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
+				</li>
+				<li><p>Elija <b>Fetch</b> para actualizar la lista de confirmaciones entrantes. (Hay dos enlaces de Fetch , uno cerca de la parte superior y el otro en la sección Incoming Commits . Puede usar cualquiera de los dos, ya que ambos hacen lo mismo).</p>
+				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/fetch.png" alt="Ha podido recuperar" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li><p>Puede revisar los resultados de la operación de <b>Fetch</b> en la sección de confirmaciones entrantes.</p>
+				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/incoming-commits.png" alt="Inbound commits" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
+
+			<h3>Actualizar sucursales con merge</h3>
+			<p>
+				Team Explorer se fusiona cuando haces un <b>Pull</b> o <b>Sync</b> desde la vista <b>Changes</b>. <b>Sync</b> es una operación combinada de extracción de cambios remotos y luego impulso de los locales, sincronizando los commits en la rama local y remota.
+			</p>
+
+			<ol>
+				<li>
+					<p>Abra la vista Sincronización en Team Explorer seleccionando el ícono <b>Home</b> y eligiendo <b>Sync</b></p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/synchronization-menu.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Elija sincronización.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/sync.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Se muestra un mensaje de confirmación cuando finaliza la operación de sincronización.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/sync-results.png" alt="Operación de sincronización completa" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
 
-		<h3>Obtener y fusionar con pull</h3>
-		<p>
-			Abra el Team Explorer y abra la vista <b>Sync</b>. A continuación, haga clic en el Tire enlace bajo entrante Se compromete a pull cambios remotas y fusionarlas en su rama local. Extrae los archivos de actualizaciones en tu proyecto abierto, así que asegúrate de confirmar tus cambios antes de <b>pulling</b>.
-		</p>
+			<h3>Obtener y fusionar con pull</h3>
+			<p>
+				Abra el Team Explorer y abra la vista <b>Sync</b>. A continuación, haga clic en el Tire enlace bajo entrante Se compromete a pull cambios remotas y fusionarlas en su rama local. Extrae los archivos de actualizaciones en tu proyecto abierto, así que asegúrate de confirmar tus cambios antes de <b>pulling</b>.
+			</p>
 
-		<ol>
-			<li>
-				<p>Abra la vista Sincronización en Team Explorer seleccionando el ícono <b>Home</b> y eligiendo <b>Sync</b>.</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/synchronization-menu.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Elija <b>Pull</b> para buscar cambios remotos y combinarlos en su sucursal local. (Hay dos enlaces de <b>pull</b> , uno cerca de la parte superior y uno en la sección de Incoming Commits . Puede usar cualquiera de los dos, ya que ambos hacen lo mismo).</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/pull.png" alt="Halar" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Se muestra un mensaje de confirmación cuando finaliza la operación de extracción <b>pulling</b></p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/pull-results.png" alt="Operación de extracción completa" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
-	</article>
-
-
-	<article>
-		<h3>Actualice su rama local con los últimos cambios desde master</h3>
-		<p>Para fusionar los últimos cambios desde la rama <b>master</b> a su rama local:</p>
-
-		<ol>
-			<li>
-				<p>Abra la vista de ramas en Team Explorer. Asegúrese de que su rama de destino deseada esté desprotegida, haga clic con el botón derecho en la rama de destino y seleccione <b> Merge From.</b></p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/merge-from-menu.png" alt="Combinar desde" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Especifique la fusión deseada de la bifurcación , que está masteren este ejemplo, y elija combinar </p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/merge-from.png" alt="Combinar desde el maestro" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Ingrese un mensaje de confirmación y seleccione <b>Commit Staged</b>.</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/commit-merge-from-master.png" alt="Commit fusionar desde maestro" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>Cuando esté listo para enviar sus confirmaciones locales, incluida su nueva confirmación de fusión, al servidor remoto, elija <b>Enviar</b> desde la vista Sincronización.</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/merge-from-master-push.png" alt="empujar" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
-	</article>
+			<ol>
+				<li>
+					<p>Abra la vista Sincronización en Team Explorer seleccionando el ícono <b>Home</b> y eligiendo <b>Sync</b>.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/synchronization-menu.png" alt="Vista de sincronización" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Elija <b>Pull</b> para buscar cambios remotos y combinarlos en su sucursal local. (Hay dos enlaces de <b>pull</b> , uno cerca de la parte superior y uno en la sección de Incoming Commits . Puede usar cualquiera de los dos, ya que ambos hacen lo mismo).</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/pull.png" alt="Halar" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Se muestra un mensaje de confirmación cuando finaliza la operación de extracción <b>pulling</b></p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/pull-results.png" alt="Operación de extracción completa" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
+		</article>
 
 
+		<article>
+			<h3>Actualice su rama local con los últimos cambios desde master</h3>
+			<p>Para fusionar los últimos cambios desde la rama <b>master</b> a su rama local:</p>
 
-
-	<article>
-		<h2>Revisar código con pull request</h2>
-
-		<p>El flujo de trabajo de Git utiliza ramas para aislar el trabajo hasta que esté listo para fusionar los cambios en su rama predeterminada, como master. La solicitud de extracción es el proceso colaborativo que le permite al resto del equipo hablar sobre los cambios en una sucursal y acordar fusionarlos una vez que todos lo aprueben. Utilice las solicitudes de extracción para obtener retroalimentación temprana de los demás sobre el trabajo en progreso, incluso si no está listo para fusionar los cambios en otra rama.</p>
-		<p><img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/merge.png" alt="Fusionando una rama de Git en su padre a través de una solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus"></p>
-
-		<p>En esta imagen, la rama púrpura se fusiona en la rama azul a través de una solicitud de extracción. Los revisores debaten los cambios en la solicitud de extracción antes de fusionar el código. Cuando completa la solicitud de extracción, hay una confirmación de fusión (aquí se ve como la confirmación azul completada) donde los cambios en la rama púrpura ahora se fusionan en la rama azul.
-		</p>
-		<p>En este tutorial, aprenderá a:</p>
-		<ul>
-			<li>Crear una solicitud de extracción</li>
-			<li>Completa una solicitud de extracción</li>
-		</ul>
-
-		<h3>Crear una solicitud de extracción</h3>
-		<p>Para crear una solicitud de extracción en VSTS:</p>
-
-		<ol>
-			<li>
-				<p><b>Push</b> tu rama local</p>
-			</li>
-			<li>
-				<p>Cree una solicitud de extracción para la sucursal en VSTS. Puede hacerlo en la vista de Código en la web desde la pestaña Solicitudes de extracción o la pestaña Archivos .</p>
-				
-				<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/create-pr-from-push.png" alt="Crear solicitud de extracción a través de una rama de inserción en VSTS" data-linktype="relative-path" class="x-hidden-focus">
-
-				<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/create-pr-from-push-files-tab.png" alt="Crear solicitud de extracción a través de una rama de inserción en VSTS" data-linktype="relative-path" class="x-hidden-focus">
-
-				<p>También puede iniciar una solicitud de extracción desde Visual Studio. Seleccione la vista de solicitudes de extracción cuando esté conectado a su proyecto de equipo.</p>
-
-				<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/pull-requests.png" alt="Solicitudes de extracción" data-linktype="relative-path" class="x-hidden-focus">
-
-				<p>
-					Desde la vista Solicitudes de extracción, puede ver las solicitudes de extracción que usted haya abierto y asignado, y puede crear nuevas solicitudes de extracción. Seleccione Nueva solicitud de extracción para abrir un navegador web donde pueda crear la nueva solicitud de extracción en el portal web de VSTS para su sucursal actual.
-				</p>
-
-				<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/new-pull-request.png" alt="Solicitudes de extracción" data-linktype="relative-path" class="x-hidden-focus">
-
-			</li>
-			<li>
-				<p>
-					Crea la solicitud de extracción. Debería dar un título claro para la solicitud de extracción que describa los cambios en la rama. En el campo de descripción, brinde una explicación clara de cómo se implementan los cambios junto con cualquier recurso que pueda ayudar a los revisores a comprender los cambios. Puede incluir elementos de trabajo e hipervínculos de VSTS para permitir que otros tengan tanto contexto como sea posible al revisar sus cambios. Agregue a cualquier miembro del equipo a quién le gustaría revisar los cambios.
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pull-request-detail.png" alt="Agregar detalles a una solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
-
-
-		<h4>¿Quién revisa la solicitud de extracción?</h4>
-		<p>
-			Cuando crea la solicitud de extracción, puede agregar otras que necesiten revisar sus cambios. Puede agregar usuarios y grupos a la solicitud de extracción después de que se haya creado si el alcance de la revisión necesita expandirse. También puede asociar la solicitud de extracción con una tarea en VSTS para que los demás que trabajan con la tarea sepan que los cambios están listos para su revisión.
-		</p>
-
-		<h4>¿Cómo funciona la revisión del código?</h4>
-		<p>
-			Los revisores de solicitudes de extracción verán las actualizaciones propuestas para la sucursal en forma de diferencias de archivos entre las dos sucursales. Los revisores pueden agregar comentarios sobre cualquiera de los cambios e incluir notificaciones para que otros miembros del equipo respondan una pregunta o den otros comentarios. Puede realizar cambios y enviar confirmaciones para resolver problemas que aparecen en los comentarios y estos cambios se reflejan inmediatamente en la solicitud de extracción.
-		</p>
-
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pull_request_comment.png" alt="Agregar comentarios a una solicitud de extracción de VSTS" data-linktype="relative-path" class="x-hidden-focus">
-
-		<p>
-			Si los cambios necesitan mucho más desarrollo para completarse, puede abandonar la solicitud de extracción. Posteriormente, puede abrir una nueva solicitud de extracción para volver a visitar los cambios y vincularlos a las conversaciones que tuvieron lugar en la solicitud de extracción abandonada.
-		</p>
-		<p>
-			También puede abrir una solicitud de extracción en una versión muy temprana de su código para solicitar comentarios de otros, incluso si el código aún no está listo para fusionarse. Una vez que reciba los comentarios del equipo, puede mantener abierta la solicitud de extracción para continuar la conversación o abandonar la solicitud de extracción hasta que su código esté listo para ser compartido nuevamente.
-		</p>
-
-		<h3>Completa una solicitud de extracción</h3>
-		<p>
-			Complete su solicitud de extracción después de que los revisores aprueben los cambios al seleccionar Completar en la esquina superior derecha de la vista de solicitud de extracción.
-		</p>
-		<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/complete_pr_options.png" alt="Botón completo en la vista de solicitud de extracción con sus opciones desplegables" data-linktype="relative-path" class="x-hidden-focus">
-
-		<ul>
-			<li>
-				<p>
-					<b>Completar:</b> Complete la solicitud de extracción ahora y combine los cambios con la rama de destino.
-				</p>
-			</li>
-			<li>
-				<p>
-					<b>Establecer autocompletar:</b> si tiene políticas de rama, puede elegir Establecer autocompletar para configurar la solicitud de extracción para que se cierre cuando se cumplan todas las políticas de rama. Para obtener más información sobre el autocompletado (y las razones por las que es posible que no vea esta opción), consulte Completar automáticamente .
-				</p>
-			</li>
-			<li>
-				<p>
-					<b>Abandonar:</b> elija Abandonar para cerrar la solicitud de extracción sin combinar los cambios.
-				</p>
-			</li>
-		</ul>
-
-		<p>
-			Ingrese el mensaje utilizado para la confirmación de fusión y actualice la descripción de la solicitud de extracción según sea necesario en el cuadro de diálogo siguiente.
-		</p>
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/complete-pull-request-dialog.png" alt="Completar el diálogo de solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus">
+			<ol>
+				<li>
+					<p>Abra la vista de ramas en Team Explorer. Asegúrese de que su rama de destino deseada esté desprotegida, haga clic con el botón derecho en la rama de destino y seleccione <b> Merge From.</b></p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/merge-from-menu.png" alt="Combinar desde" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Especifique la fusión deseada de la bifurcación , que está masteren este ejemplo, y elija combinar </p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/merge-from.png" alt="Combinar desde el maestro" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Ingrese un mensaje de confirmación y seleccione <b>Commit Staged</b>.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/commit-merge-from-master.png" alt="Commit fusionar desde maestro" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>Cuando esté listo para enviar sus confirmaciones locales, incluida su nueva confirmación de fusión, al servidor remoto, elija <b>Enviar</b> desde la vista Sincronización.</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pulling/merge-from-master-push.png" alt="empujar" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
+		</article>
 
 
 
-		<ol>
-			<li>
-				<p>
-					Verifique los elementos de trabajo vinculados completos después de la fusión para completar los elementos de trabajo vinculados.
-				</p>
-			</li>
-			<li>
-				<p>
-					Compruebe Eliminar <branch name>después de la fusión para eliminar la rama de origen de la solicitud de extracción. Git retiene el historial de confirmación en la rama master después de que se completa la solicitud de extracción, por lo que a menos que planee hacer más trabajo en la rama, es seguro eliminarla.
-				</p>
-			</li>
-			<li>
-				<p>
-					Comprueba los cambios de Squash al fusionar para squash fusionar tu solicitud de extracción.
-				</p>
-			</li>
-			<li>
-				<p>
-					Marque Anular políticas de la rama y habilite la combinación para forzar la fusión incluso si no se han cumplido todas las políticas de la rama. Esta opción solo está disponible si tiene exentos de los permisos de cumplimiento de políticas .
-				</p>
-			</li>
-		</ol>
 
-		<h4>¿Qué sucede cuando una solicitud de extracción se fusiona?</h4>
-		<p>
-			Debe resolver cualquier conflicto de fusión entre la rama de solicitud de extracción y la rama de destino. Git agrega un nuevo compromiso (el compromiso de fusión ) al final de la rama master. Esta combinación de fusión vincula el historial anterior de la rama principal y las confirmaciones para la rama que se fusionó como parte de la solicitud de extracción.
-		</p>
+		<article>
+			<h2>Revisar código con pull request</h2>
 
-	</article>	
-	
+			<p>El flujo de trabajo de Git utiliza ramas para aislar el trabajo hasta que esté listo para fusionar los cambios en su rama predeterminada, como master. La solicitud de extracción es el proceso colaborativo que le permite al resto del equipo hablar sobre los cambios en una sucursal y acordar fusionarlos una vez que todos lo aprueben. Utilice las solicitudes de extracción para obtener retroalimentación temprana de los demás sobre el trabajo en progreso, incluso si no está listo para fusionar los cambios en otra rama.</p>
+			<p><img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/merge.png" alt="Fusionando una rama de Git en su padre a través de una solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus"></p>
+
+			<p>En esta imagen, la rama púrpura se fusiona en la rama azul a través de una solicitud de extracción. Los revisores debaten los cambios en la solicitud de extracción antes de fusionar el código. Cuando completa la solicitud de extracción, hay una confirmación de fusión (aquí se ve como la confirmación azul completada) donde los cambios en la rama púrpura ahora se fusionan en la rama azul.
+			</p>
+			<p>En este tutorial, aprenderá a:</p>
+			<ul>
+				<li>Crear una solicitud de extracción</li>
+				<li>Completa una solicitud de extracción</li>
+			</ul>
+
+			<h3>Crear una solicitud de extracción</h3>
+			<p>Para crear una solicitud de extracción en VSTS:</p>
+
+			<ol>
+				<li>
+					<p><b>Push</b> tu rama local</p>
+				</li>
+				<li>
+					<p>Cree una solicitud de extracción para la sucursal en VSTS. Puede hacerlo en la vista de Código en la web desde la pestaña Solicitudes de extracción o la pestaña Archivos .</p>
+					
+					<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/create-pr-from-push.png" alt="Crear solicitud de extracción a través de una rama de inserción en VSTS" data-linktype="relative-path" class="x-hidden-focus">
+
+					<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/create-pr-from-push-files-tab.png" alt="Crear solicitud de extracción a través de una rama de inserción en VSTS" data-linktype="relative-path" class="x-hidden-focus">
+
+					<p>También puede iniciar una solicitud de extracción desde Visual Studio. Seleccione la vista de solicitudes de extracción cuando esté conectado a su proyecto de equipo.</p>
+
+					<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/pull-requests.png" alt="Solicitudes de extracción" data-linktype="relative-path" class="x-hidden-focus">
+
+					<p>
+						Desde la vista Solicitudes de extracción, puede ver las solicitudes de extracción que usted haya abierto y asignado, y puede crear nuevas solicitudes de extracción. Seleccione Nueva solicitud de extracción para abrir un navegador web donde pueda crear la nueva solicitud de extracción en el portal web de VSTS para su sucursal actual.
+					</p>
+
+					<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/new-pull-request.png" alt="Solicitudes de extracción" data-linktype="relative-path" class="x-hidden-focus">
+
+				</li>
+				<li>
+					<p>
+						Crea la solicitud de extracción. Debería dar un título claro para la solicitud de extracción que describa los cambios en la rama. En el campo de descripción, brinde una explicación clara de cómo se implementan los cambios junto con cualquier recurso que pueda ayudar a los revisores a comprender los cambios. Puede incluir elementos de trabajo e hipervínculos de VSTS para permitir que otros tengan tanto contexto como sea posible al revisar sus cambios. Agregue a cualquier miembro del equipo a quién le gustaría revisar los cambios.
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pull-request-detail.png" alt="Agregar detalles a una solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
 
-	<article>
-		
-		<h2>Historial de revisión</h2>
+			<h4>¿Quién revisa la solicitud de extracción?</h4>
+			<p>
+				Cuando crea la solicitud de extracción, puede agregar otras que necesiten revisar sus cambios. Puede agregar usuarios y grupos a la solicitud de extracción después de que se haya creado si el alcance de la revisión necesita expandirse. También puede asociar la solicitud de extracción con una tarea en VSTS para que los demás que trabajan con la tarea sepan que los cambios están listos para su revisión.
+			</p>
 
-		<p>
-			Git usa la información de referencia principal almacenada en cada commit para administrar un historial completo de su desarrollo. Revise este historial de confirmaciones para saber cuándo se realizaron los cambios en los archivos y determinar las diferencias entre las versiones de su código.
-		</p>
-		<p>
-			El uso de Git de ramas de características y fusiones a través de solicitudes de extracción significa que el historial de confirmación de su desarrollo no forma una línea recta y cronológica. Cuando utiliza el historial para comparar versiones, piense en términos de cambios de archivos entre dos confirmaciones en lugar de cambios de archivos entre dos puntos en el tiempo. Un cambio reciente en un archivo en la masterrama puede haber venido de una confirmación creada hace dos semanas en una rama de características, pero solo se fusionó ayer.
-		</p>
+			<h4>¿Cómo funciona la revisión del código?</h4>
+			<p>
+				Los revisores de solicitudes de extracción verán las actualizaciones propuestas para la sucursal en forma de diferencias de archivos entre las dos sucursales. Los revisores pueden agregar comentarios sobre cualquiera de los cambios e incluir notificaciones para que otros miembros del equipo respondan una pregunta o den otros comentarios. Puede realizar cambios y enviar confirmaciones para resolver problemas que aparecen en los comentarios y estos cambios se reflejan inmediatamente en la solicitud de extracción.
+			</p>
 
-		<p>
-			En este tutorial, aprenderá a:
-		</p>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/pull_request_comment.png" alt="Agregar comentarios a una solicitud de extracción de VSTS" data-linktype="relative-path" class="x-hidden-focus">
 
-		<ul>
-			<li>Comparar archivos</li>
-			<li>Recuperar archivos</li>
-			<li>Comparar ramas</li>
-		</ul>
+			<p>
+				Si los cambios necesitan mucho más desarrollo para completarse, puede abandonar la solicitud de extracción. Posteriormente, puede abrir una nueva solicitud de extracción para volver a visitar los cambios y vincularlos a las conversaciones que tuvieron lugar en la solicitud de extracción abandonada.
+			</p>
+			<p>
+				También puede abrir una solicitud de extracción en una versión muy temprana de su código para solicitar comentarios de otros, incluso si el código aún no está listo para fusionarse. Una vez que reciba los comentarios del equipo, puede mantener abierta la solicitud de extracción para continuar la conversación o abandonar la solicitud de extracción hasta que su código esté listo para ser compartido nuevamente.
+			</p>
+
+			<h3>Completa una solicitud de extracción</h3>
+			<p>
+				Complete su solicitud de extracción después de que los revisores aprueben los cambios al seleccionar Completar en la esquina superior derecha de la vista de solicitud de extracción.
+			</p>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/_img/pull-requests/complete_pr_options.png" alt="Botón completo en la vista de solicitud de extracción con sus opciones desplegables" data-linktype="relative-path" class="x-hidden-focus">
+
+			<ul>
+				<li>
+					<p>
+						<b>Completar:</b> Complete la solicitud de extracción ahora y combine los cambios con la rama de destino.
+					</p>
+				</li>
+				<li>
+					<p>
+						<b>Establecer autocompletar:</b> si tiene políticas de rama, puede elegir Establecer autocompletar para configurar la solicitud de extracción para que se cierre cuando se cumplan todas las políticas de rama. Para obtener más información sobre el autocompletado (y las razones por las que es posible que no vea esta opción), consulte Completar automáticamente .
+					</p>
+				</li>
+				<li>
+					<p>
+						<b>Abandonar:</b> elija Abandonar para cerrar la solicitud de extracción sin combinar los cambios.
+					</p>
+				</li>
+			</ul>
+
+			<p>
+				Ingrese el mensaje utilizado para la confirmación de fusión y actualice la descripción de la solicitud de extracción según sea necesario en el cuadro de diálogo siguiente.
+			</p>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/complete-pull-request-dialog.png" alt="Completar el diálogo de solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus">
+
+
+
+			<ol>
+				<li>
+					<p>
+						Verifique los elementos de trabajo vinculados completos después de la fusión para completar los elementos de trabajo vinculados.
+					</p>
+				</li>
+				<li>
+					<p>
+						Compruebe Eliminar <branch name>después de la fusión para eliminar la rama de origen de la solicitud de extracción. Git retiene el historial de confirmación en la rama master después de que se completa la solicitud de extracción, por lo que a menos que planee hacer más trabajo en la rama, es seguro eliminarla.
+					</p>
+				</li>
+				<li>
+					<p>
+						Comprueba los cambios de Squash al fusionar para squash fusionar tu solicitud de extracción.
+					</p>
+				</li>
+				<li>
+					<p>
+						Marque Anular políticas de la rama y habilite la combinación para forzar la fusión incluso si no se han cumplido todas las políticas de la rama. Esta opción solo está disponible si tiene exentos de los permisos de cumplimiento de políticas .
+					</p>
+				</li>
+			</ol>
+
+			<h4>¿Qué sucede cuando una solicitud de extracción se fusiona?</h4>
+			<p>
+				Debe resolver cualquier conflicto de fusión entre la rama de solicitud de extracción y la rama de destino. Git agrega un nuevo compromiso (el compromiso de fusión ) al final de la rama master. Esta combinación de fusión vincula el historial anterior de la rama principal y las confirmaciones para la rama que se fusionó como parte de la solicitud de extracción.
+			</p>
+
+		</article>	
 		
 
-		<h3>Comparar archivos</h3>
-		<ol>
-			<li>
-				<p>
-					Haga clic en el archivo en el Explorador de soluciones y seleccione <b>Ver Historial ...</b> . Aparecerá la ventana de historial que muestra el ID de confirmación, el autor, la fecha y la descripción de todos los cambios en el archivo en su repositorio local en todas las sucursales.
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-history-view.png" alt="Ver el historial en su repositorio de un archivo" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>
-					Encuentre la última confirmación para una sucursal buscando su nombre en una flecha a la derecha de una confirmación.
-				</p>
-			</li>
-			<li>
-				<p>
-					Ver los cambios de la versión anterior del archivo haciendo clic derecho y seleccionando <b>Comparar con ... anterior</b>. Vea los cambios entre dos versiones seleccionando ambas confirmaciones, luego haga clic con el botón derecho y seleccione <b>Comparar ...</b>
-				</p>
-			</li>
-			<li>
-				<p>
-					La vista de diferencias muestra líneas eliminadas de la confirmación más antigua y agregadas en la nueva.
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-diff-changes.png" alt="Ver los cambios de diff en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
+
+		<article>
+			
+			<h2>Historial de revisión</h2>
+
+			<p>
+				Git usa la información de referencia principal almacenada en cada commit para administrar un historial completo de su desarrollo. Revise este historial de confirmaciones para saber cuándo se realizaron los cambios en los archivos y determinar las diferencias entre las versiones de su código.
+			</p>
+			<p>
+				El uso de Git de ramas de características y fusiones a través de solicitudes de extracción significa que el historial de confirmación de su desarrollo no forma una línea recta y cronológica. Cuando utiliza el historial para comparar versiones, piense en términos de cambios de archivos entre dos confirmaciones en lugar de cambios de archivos entre dos puntos en el tiempo. Un cambio reciente en un archivo en la masterrama puede haber venido de una confirmación creada hace dos semanas en una rama de características, pero solo se fusionó ayer.
+			</p>
+
+			<p>
+				En este tutorial, aprenderá a:
+			</p>
+
+			<ul>
+				<li>Comparar archivos</li>
+				<li>Recuperar archivos</li>
+				<li>Comparar ramas</li>
+			</ul>
+			
+
+			<h3>Comparar archivos</h3>
+			<ol>
+				<li>
+					<p>
+						Haga clic en el archivo en el Explorador de soluciones y seleccione <b>Ver Historial ...</b> . Aparecerá la ventana de historial que muestra el ID de confirmación, el autor, la fecha y la descripción de todos los cambios en el archivo en su repositorio local en todas las sucursales.
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-history-view.png" alt="Ver el historial en su repositorio de un archivo" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>
+						Encuentre la última confirmación para una sucursal buscando su nombre en una flecha a la derecha de una confirmación.
+					</p>
+				</li>
+				<li>
+					<p>
+						Ver los cambios de la versión anterior del archivo haciendo clic derecho y seleccionando <b>Comparar con ... anterior</b>. Vea los cambios entre dos versiones seleccionando ambas confirmaciones, luego haga clic con el botón derecho y seleccione <b>Comparar ...</b>
+					</p>
+				</li>
+				<li>
+					<p>
+						La vista de diferencias muestra líneas eliminadas de la confirmación más antigua y agregadas en la nueva.
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-diff-changes.png" alt="Ver los cambios de diff en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
 
-		<h3>Recuperar archivos</h3>
-		<h4>Para recuperar una versión anterior de un archivo que existe en su proyecto de Visual Studio:</h4>
-		<ol>
-			<li>
-				<p>
-					Haga clic con el botón derecho en el Explorador de soluciones y seleccione Ver historial . Aparecerá la vista Historial de Visual Studio , que muestra las confirmaciones en su repositorio que actualizó el archivo. Puede filtrar las confirmaciones para encontrar la confirmación exacta con la versión del archivo que desea restaurar. Haga doble clic en la versión para abrirla en Visual Studio.
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-history-view.png" alt="Ver versiones de archivos en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
+			<h3>Recuperar archivos</h3>
+			<h4>Para recuperar una versión anterior de un archivo que existe en su proyecto de Visual Studio:</h4>
+			<ol>
+				<li>
+					<p>
+						Haga clic con el botón derecho en el Explorador de soluciones y seleccione Ver historial . Aparecerá la vista Historial de Visual Studio , que muestra las confirmaciones en su repositorio que actualizó el archivo. Puede filtrar las confirmaciones para encontrar la confirmación exacta con la versión del archivo que desea restaurar. Haga doble clic en la versión para abrirla en Visual Studio.
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-history-view.png" alt="Ver versiones de archivos en Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
-		<h4>Para recuperar una versión anterior de un archivo que se eliminó en una confirmación anterior:</h4>
-		<ol>
-			<li>
-				<p>
-					Abra la vista <b>Cambios</b> en Team Explorer y seleccione <b>Ver historial</b> en el menú desplegable <b>Acciones</b>.
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/team-explorer-changes.png" alt="Ver cambios" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>
-					Haga clic con el botón derecho en la confirmación que contiene la versión del archivo que desea restaurar y seleccione <b>Ver detalles de confirmación</b>.
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-view-commit-details.png" alt="Ver cambios" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-			<li>
-				<p>
-					Haga clic con el botón derecho en el archivo para restaurar en los <b>Detalles de confirmación</b> en Team Explorer y seleccione Abrir .
-				</p>
-				<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-open-deleted-file.png" alt="Vea los archivos eliminados en su repositorio de Git con Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
-			</li>
-		</ol>
-
-
-		<h3>Comparar ramas</h3>
-		<p>
-			La comparación de las sucursales se puede hacer en el portal web, al que se puede acceder desde la vista de inicio de Team Explorer en Visual Studio seleccionando Portal web .
-		</p>
-
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-browse-web-portal.png" alt="Portal web" data-linktype="relative-path" class="x-hidden-focus">
-
-		<p>
-			Seleccione Ramas en el menú bajo Código . Ubique su sucursal y seleccione el icono ... para ver las opciones de sucursal. Seleccione <b>Comparar ramas</b>.
-		</p>
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/compare-branches.png" alt="Comparar ramas" data-linktype="relative-path" class="x-hidden-focus">
-
-		<p>
-			Seleccione la rama para comparar desde las listas desplegables en la parte superior. La vista mostrará todos los cambios entre las ramas.
-		</p>
-		<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/comparing-branches.png" alt="Comparando ramas" data-linktype="relative-path" class="x-hidden-focus">
+			<h4>Para recuperar una versión anterior de un archivo que se eliminó en una confirmación anterior:</h4>
+			<ol>
+				<li>
+					<p>
+						Abra la vista <b>Cambios</b> en Team Explorer y seleccione <b>Ver historial</b> en el menú desplegable <b>Acciones</b>.
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/team-explorer-changes.png" alt="Ver cambios" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>
+						Haga clic con el botón derecho en la confirmación que contiene la versión del archivo que desea restaurar y seleccione <b>Ver detalles de confirmación</b>.
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-view-commit-details.png" alt="Ver cambios" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+				<li>
+					<p>
+						Haga clic con el botón derecho en el archivo para restaurar en los <b>Detalles de confirmación</b> en Team Explorer y seleccione Abrir .
+					</p>
+					<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-open-deleted-file.png" alt="Vea los archivos eliminados en su repositorio de Git con Visual Studio" data-linktype="relative-path" class="x-hidden-focus">
+				</li>
+			</ol>
 
 
-	</article>
+			<h3>Comparar ramas</h3>
+			<p>
+				La comparación de las sucursales se puede hacer en el portal web, al que se puede acceder desde la vista de inicio de Team Explorer en Visual Studio seleccionando Portal web .
+			</p>
+
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/vs-browse-web-portal.png" alt="Portal web" data-linktype="relative-path" class="x-hidden-focus">
+
+			<p>
+				Seleccione Ramas en el menú bajo Código . Ubique su sucursal y seleccione el icono ... para ver las opciones de sucursal. Seleccione <b>Comparar ramas</b>.
+			</p>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/compare-branches.png" alt="Comparar ramas" data-linktype="relative-path" class="x-hidden-focus">
+
+			<p>
+				Seleccione la rama para comparar desde las listas desplegables en la parte superior. La vista mostrará todos los cambios entre las ramas.
+			</p>
+			<img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/history/comparing-branches.png" alt="Comparando ramas" data-linktype="relative-path" class="x-hidden-focus">
+
+
+		</article>
 
 
 </section>
