@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		section {
+			border: 1px solid navy;
+			border-radius: 1em;
+			padding: 1em;
+			margin: 1em;
+		}
+
+		h1,h2,h3 {
+			color: navy;
+		}
+
+		h3{ 
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+<section>
+	<h1>GitFlow para Visual Studio</h1>
+	<p>
+Para hacer que GitFlow sea más accesible, se integra el conjunto de herramientas de GitFlow en Visual Studio, extendiendo Team Explorer. Esto hace que sea muy fácil acceder a los comandos y reduce 
+un poco la curva de aprendizaje al hacer que esté disponible como una IU. Tenga en cuenta que la extensión incluye los guiones de GitFlow de la bifurcación de Peter van der Does de GitFlow y los utiliza para cada comando, por lo que proporciona la misma 
+funcionalidad exacta que los scripts de GitFlow.
+	</p>
+
+
+	<h2>Instalación</h2>
+	<p>
+		Encontrará la extensión en la Galería de Visual Studio, solo busque GitFlow en la ventana de Extensión y Actualizaciones. O bien, descárguelo de <a href="https://marketplace.visualstudio.com/">https://marketplace.visualstudio.com/</a>. Nota: La extensión requiere Visual Studio 2013 Update 3 o superior
+	</p>
+
+	<h3>Usando la extensión</h3>
+	<p>
+		Cuando se conecta a un repositorio de Git en Visual Studio (ya sea local o remoto), verá un nuevo ícono en la página de inicio en Team Explorer:
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_1.png" width="360" height="315">
+	<p>	
+		Ahora, si GitFlow no está instalado en su máquina, se le mostrará el siguiente mensaje:
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_2.png" width="369" height="158">
+	<p>	
+		Al hacer clic en Instalar, la extensión copiará los archivos necesarios en el directorio de Git for Windows y ejecutará el script de instalación para GitFlow. 
+		Puede consultar los detalles de instalación de GitFlow aquí <a href="https://github.com/nvie/gitflow/wiki/Windows">https://github.com/nvie/gitflow/wiki/Windows</a>.
+	</p>
+	<p>
+		( Nota: Debido a que la copia de archivos en el directorio %Archivos de programa (x86)% Gitbin requiere privilegios elevados, esto se lleva a cabo ejecutando esto como un script elevado de Powershell. 
+		Verá esto de forma intermitente durante la instalación )
+	</p>
+
+	<h3>Inicializar</h3>
+	<p>
+		¡Ahora está listo para comenzar a usar la extensión! Lo primero que tendrá que hacer es inicializar el repositorio para GitFlow. Lo que esto significa es que debe crear su desarrollo permanente y ramas principales, y establecer las convenciones de nomenclatura para funciones futuras, versiones y ramas de revisión:
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_3.png" width="363" height="323">
+
+	<p>
+		También puede establecer el prefijo de etiqueta, que se usará cuando etiquete una rama de versión o revisión como parte de terminar esas ramas.
+
+		Tenga en cuenta que todos los resultados de todas las operaciones de GitFlow se envían a un panel de ventana de salida separado en Visual Studio, que se activa cuando se inicia el comando. 
+		Aquí puede saber qué comando de gitflow se utilizó y cuál es su resultado:		
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_10.png" width="356" height="148">
+
+	<!-- Features -->
+	<h2>Trabajando con Características - Features</h2>
+	<p>
+		A partir de ahora, la extensión mostrará las acciones recomendadas en función de la rama en la que se encuentre actualmente. Después de inicializar el repositorio, estará en la rama de desarrollo , por lo que desde aquí normalmente debería iniciar una nueva característica, versión o bifurcación de revisión.
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_11.png" width="362" height="219">
+
+	<p>
+		Hacer clic en Start Feature le permitirá definir un nombre para la rama. GitFlow agregará el prefijo de rama de función para usted, así que no incluya eso. Aquí he creado una rama de características llamada SingleSignOn:
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_5.png" width="360" height="223">
+
+	<p>
+		Como puede ver, la extensión ahora sugerirá Finish Feature como la acción recomendada:
+	</p>
+	<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_6.png" width="362" height="309">
+
+	<p>
+		Tenga en cuenta que todas las demás acciones todavía están disponibles en el menú Otros.		
+	</p>
+
+	<p>
+		En el mundo de GitFlow, puede tener múltiples ramas de características, pero solo una rama de liberación y revisión en cualquier momento. De hecho, si intenta crear varias ramas de publicación, obtendrá un error.
+	</p>
+
+	<p>
+		Hacer un seguimiento de las múltiples ramas de características puede ser engorroso, por lo que la extensión enumera todas las ramas de características activas en una sección separada:
+	</p>
+
+	<table>
+		<tr>
+			<td>
+				<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_7.png" width="359" height="262">
+		
+			</td>
+			<td>
+				<img title="imagen" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" border="0" alt="imagen" src="https://gwb.blob.core.windows.net/jakob/WindowsLiveWriter/IntroducingGitFlowforVisualStudio_FFE2/image_thumb_8.png" width="325" height="263">
+			</td>
+		</tr>
+	</table>
+
+
+	<p>
+		Como puede ver, si pasa el mouse sobre una característica obtendrá más detalles sobre ella, y si hace clic derecho sobre ella, puede (dependiendo del estado), verificar, rastrear o publicar la rama de características. 
+	</p>
+
+
+	<h2>Crear Liberación - Release</h2>
+	
+	<h2>Crear Revisión - Hotfix</h2>
+	
+</section>
+
+
+
+
+</body>
+</html>
+

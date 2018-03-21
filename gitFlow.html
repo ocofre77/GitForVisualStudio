@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<section>
+	<h1>GitFlow</h1>
+	<p>
+		GitFlow es un flujo de trabajo popular que proporciona una convención de nomenclatura uniforme para sus sucursales, así como una guía clara sobre cómo debe fluir su código a través de estas sucursales. GitFlow fue presentado por Vincent Driessen en este post en 2010, y rápidamente llamó la atención de la comunidad. 
+	</p>
+	<p>
+		Dado que GitFlow por naturaleza es muy prescriptivo, tiene mucho sentido implementar el soporte de herramientas para el flujo de trabajo, que Vincent agregó poco después. Su informe está disponible en <a href="https://github.com/nvie/gitflow">https://github.com/nvie/gitflow</a> , aunque no se ha actualizado desde 2012. 
+		Sin embargo, se han fabricado varias bifurcaciones, una de las más activas está siendo desarrollada por Peter van der Does en <a href="https://github.com/petervanderdoes/gitflow">https://github.com/petervanderdoes/gitflow</a>
+	</p>
+
+
+	<h2>Cómo funciona?</h2>
+	<img src="https://www.atlassian.com/dam/jcr:2bef0bef-22bc-4485-94b9-a9422f70f11c/02%20(2).svg" alt="Flujo de trabajo de Git - Sucursales históricas" width="525" height="215">
+
+	<h3>Ramas Develop y Master</h3>
+	<p>
+		En lugar de una sola rama master, este flujo de trabajo utiliza dos ramas para registrar el historial del proyecto. La rama master almacena el historial de versiones oficial, y la rama develop sirve como una rama de integración para las características. También es conveniente etiquetar todas las confirmaciones en la rama <code>master</code> con un número de versión.
+	</p>
+
+	<p>
+		El primer paso es complementar el valor predeterminado mastercon una developrama. Una forma simple de hacer esto es que un desarrollador cree una developrama vacía localmente y la envíe al servidor:
+	</p>
+	<pre><code>git branch develop
+git push -u origin develop</code></pre>
+
+	<p>
+		Esta rama contendrá el historial completo del proyecto, mientras que <code>master</code> contendrá una versión abreviada. Otros desarrolladores deberían clonar el repositorio central y crear una rama de seguimiento para <code>develop</code>.
+	</p>
+
+	<p>
+		Al usar la biblioteca de extensión <code>git-flow</code>, la ejecución git flow initde un repositorio existente creará la rama <code>develop</code>:
+	</p>
+<pre><code>$ git flow init
+
+
+Initialized empty Git repository in ~/project/.git/
+No branches exist yet. Base branches must be created now.
+Branch name for production releases: [master]
+Branch name for "next release" development: [develop]<br>
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/]
+Release branches? [release/]
+Hotfix branches? [hotfix/]
+Support branches? [support/]
+Version tag prefix? []<br>
+
+$ git branch
+* develop
+&nbsp;master</code></pre>
+
+
+
+
+
+
+
+
+
+	<!-- Features -->
+	<h2>Trabajando con Características - Features</h2>
+	<p>
+		Cada nueva característica debe residir en su propia sucursal, que puede enviarse al depósito central  para copia de seguridad / colaboración. Pero, en lugar de ramificarse master, las featureramas usan developcomo su rama principal. Cuando se completa una característica, se fusiona de nuevo en desarrollo . Las características nunca deben interactuar directamente con master.
+	</p>
+	<img src="https://www.atlassian.com/dam/jcr:b5259cce-6245-49f2-b89b-9871f9ee3fa4/03%20(2).svg" alt="Flujo de trabajo de Git - Feature Branches" width="525" height="378">
+
+	<p>
+	Tenga en cuenta que las ramas <code>feature</code> son combinadas con la rama <code>develop</code>, a todos los efectos, el flujo de trabajo de la rama de features. Pero, el flujo de trabajo de Gitflow no se detiene allí.
+	</p>
+	<p>
+	Las ramas <code>Feature</code> generalmente se crean a la última rama <code>develop</code>.
+	</p>
+	<h3>Crear una rama de Features</h3>
+	<p>Sin las extensiones de git-flow:</p>
+	<pre><code>git checkout develop
+git checkout -b feature_branch
+</code></pre>
+	<p>
+		Cuando se utiliza la extensión git-flow:
+	</p>
+<pre><code>git flow feature start feature_branch</code></pre>
+
+	<p>Continúa tu trabajo y usa Git como lo harías normalmente.</p>
+
+	<h3>Terminando una rama de características</h3>
+
+	<p>Cuando haya terminado con el trabajo de desarrollo de la función, el siguiente paso es fusionar el feature_branchal develop.
+	</p>
+	<p>Sin las extensiones de git-flow:</p>
+<pre><code>git checkout develop
+git merge feature_branch</code></pre>
+
+<p>
+	Usando las extensiones de git-flow:
+</p>
+
+<pre><code>git flow feature finish feature_branch</code></pre>
+
+
+
+
+	<h2>Crear Liberación - Release</h2>
+	<p>
+		El objetivo de estas ramas es preparar nuestra aplicación para su puesta en producción. En algunos equipos, estas ramas son las que se vuelcan en los servidores de pre-producción para hacer el testing final: se corrigen bugs, se pule la interfaz, se ajusta la maquetación…se hace la puesta a punto final de la aplicación antes de liberar la versión definitiva. 
+	</p>
+	<img src="https://www.atlassian.com/dam/jcr:a9cea7b7-23c3-41a7-a4e0-affa053d9ea7/04%20(1).svg" alt="Flujo de trabajo de flujo de Git: ramificaciones de liberación" width="525" height="378">
+
+	<p>
+	Una vez que <code>develop</code> haya adquirido suficientes características para un lanzamiento (o se aproxima una fecha de lanzamiento predeterminada), bifurcará una bifurcación <code>release</code> de <code>develop</code>. La creación de esta rama inicia el siguiente ciclo de publicación, por lo que no se pueden agregar nuevas características después de este punto; solo las correcciones de errores, la generación de documentación y otras tareas orientadas a la versión deberían ir en esta rama. Una vez que está listo para enviar, la rama <code>release</code> se fusiona a <code>master</code>y se etiqueta con un número de versión. Además, debe fusionarse de nuevo <code>develop</code>, lo que puede haber progresado desde que se inició el lanzamiento.
+	</p>
+	<p>
+	El uso de una rama dedicada para preparar lanzamientos permite que un equipo pueda pulir la versión actual mientras que otro equipo continúa trabajando en las funciones para la próxima versión. También crea fases de desarrollo bien definidas (por ejemplo, es fácil decir: "Esta semana nos estamos preparando para la versión 4.0" y verla realmente en la estructura del repositorio).
+	</p>
+	<p>
+	Hacer ramas <code>release</code> es otra operación directa de ramificación. Al igual que las ramas <code>feature</code>, las ramas <code>release</code> se basan en la rama <code>develop</code>. Se puede crear una nueva rama <code>release</code> utilizando los siguientes métodos.
+	</p>
+	<p>
+	Sin las extensiones de git-flow:
+	</p>
+	<pre><code>git checkout develop
+git checkout -b release/0.1.0</code></pre>
+
+	<p>Cuando se usan las extensiones de git-flow:</p>
+	<pre><code>$ git flow release start 0.1.0
+Switched to a new branch 'release/0.1.0'</code></pre>
+
+	<p>
+		Una vez que el lanzamiento esté listo para enviarse, se fusionará en mastery develop, luego release, se eliminará la rama. Es importante volver a fusionarse developporque las actualizaciones críticas se pueden haber agregado a la releasesucursal y deben ser accesibles a las nuevas funciones. Si su organización hace hincapié en la revisión del código, este sería un lugar ideal para una solicitud de extracción.
+	</p>
+	<p>
+	Para terminar una releaserama, use los siguientes métodos:
+	</p>
+	<p>
+	Sin las extensiones de git-flow:
+	</p>
+	<pre><code>git checkout develop
+git merge release/0.1.0</code></pre>
+
+	<p>O con la extensión git-flow:</p>
+	<pre><code>git checkout master
+git checkout merge release/0.1.0
+git flow release finish '0.1.0'</code></pre>
+
+
+
+	<h2>Crear Revisión - Hotfix</h2>
+	<img src="https://www.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg" alt="Flujo de trabajo de Git - Hotfix Branches" width="525" height="378">
+
+	<p>
+		El mantenimiento o las ramas “<code>hotfix</code>” se utilizan para parchear rápidamente las versiones de producción. Las ramas <code>Hotfix</code> se parecen mucho a ramas <code>release</code> y ramas <code>feature</code>, excepto que se basan en <code>master</code> lugar de <code>develop</code>. Esta es la única rama que debe partir directamente <code>master</code>. Tan pronto como se complete la corrección, se debe fusionar en ambos <code>master</code> y <code>develop</code>(o la rama <code>release</code> actual ), y se debe etiquetar <code>master</code> con un número de versión actualizado.
+	</p>
+	<p>
+		Tener una línea dedicada de desarrollo para corregir fallas le permite a su equipo solucionar los problemas sin interrumpir el resto del flujo de trabajo o esperar el siguiente ciclo de publicación. Puede pensar en las ramas de mantenimiento como ramas <code>release</code> ad hoc que trabajan directamente con master. Se puede crear una rama <code>hotfix</code> utilizando los siguientes métodos:
+	</p>
+	<p>
+		Sin las extensiones de git-flow:
+	</p>
+<pre><code>git checkout master
+git checkout -b hotfix_branch</code></pre>	
+
+	<p>Cuando se usan las extensiones de git-flow:</p>
+<pre><code>$ git flow hotfix start hotfix_branch</code></pre>
+
+	<p>
+		Similar a terminar una rama <code>release</code>, una rama <code>hotfix</code> se fusiona en ambas <code>master</code> y <code>develop</code>.
+	</p>	
+<pre><code>git checkout master
+git merge hotfix_branch
+git checkout develop
+git merge hotfix_branch
+git branch -D hotfix_branch</code></pre>
+
+	<p>Cuando se usan las extensiones de git-flow:</p>
+<pre><code>$ git flow hotfix finish hotfix_branch</code></pre>
+
+</section>
+
+
+
+
+</body>
+</html>
+

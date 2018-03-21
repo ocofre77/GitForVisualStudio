@@ -1,0 +1,53 @@
+
+
+section {
+	border: 1px solid navy;
+	border-radius: 1em;
+	padding: 1em;
+	margin: 1em;
+	background-color: #1DE1349F;
+}
+
+article {
+	border: 2px dashed navy;
+	border-radius: 0.5em;
+	padding: 1em;
+	margin: 1em;
+	background-color: #C0C0C0FF;
+}
+
+
+h1,h2,h3 {
+	color: navy;
+}
+
+h2{ border-bottom: dashed 2px red; }
+
+h3{ 
+	font-style: italic;
+}
+
+
+pre code {
+  display: block;
+  margin: 0;
+  padding: 10px 10px 9px 12px;
+  color: white;
+  background: black;
+  font-size: 15px;
+  line-height: 1.16667;
+  letter-spacing: 0;
+  word-spacing: 0;
+  white-space: pre;
+  text-indent: 0; }
+  @media only screen and (max-width: 768px) {
+    pre code {
+      font-size: 14px; } }
+
+pre {
+  overflow: auto;
+  margin: 0 0 29px 0;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  white-space: pre;
+  background: black; }

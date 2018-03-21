@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		article {
+			border: 1px solid navy;
+			border-radius: 1em;
+			padding: 1em;
+			margin: 1em;
+		}
+
+		h1,h2,h3 {
+			color: navy;
+		}
+
+		h1 {
+			border: 1px solid navy;
+			border-radius: 0.5em;
+			padding: 0.5em;
+		}
+
+		h2{
+			border-bottom: 1px solid navy;
+		}
+
+		h3{ 
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+
+<article>
+	<h1>Git para Visual Studio</h1>
+	<p>	
+		Utilice repositorios Git para alojar y colaborar en su código utilizando Visual Studio Team Services (VSTS) o Team Foundation Server (TFS).
+	</p>
+	<h2>Clona un repositorio existente de Git</h2>
+	<p>
+		Cree una copia local completa de un repositorio existente de Git clonándolo. Al clonar un repositorio, se descargan todas las confirmaciones y ramas en el repositorio y se establece una relación con el repositorio existente que se clonó. Use esta relación para interactuar con el repositorio existente, <a href="https://docs.microsoft.com/en-us/vsts/git/tutorial/pushing?tabs=visual-studio">presionando</a> y <a href="https://docs.microsoft.com/en-us/vsts/git/tutorial/pullrequest">tirando de los cambios</a> para compartir el código con su equipo.		
+	</p>
+
+	<p>
+		Es este tutorial, aprenderá a:
+	</p>
+
+	<ul>
+		<li>Obtenga la URL de clon de su repositorio</li>
+		<li>Clonar un repositorio</li>
+	</ul>
+	<h2>Video tutorial</h2>
+	<div class="playerContainer" style="" dir="ltr" lang="en">
+            <a class="playButton mouseClick" style="background-image:url(https://sec.ch9.ms/ch9/bb5e/077f43d0-cd19-4304-b8ef-19848438bb5e/gitrepovs2015_960.jpg);" href="https://sec.ch9.ms/ch9/bb5e/077f43d0-cd19-4304-b8ef-19848438bb5e/gitrepovs2015_high.mp4" title="Play" data-user="{
+					&quot;isLoggedIn&quot;: &quot;False&quot;,
+					&quot;c9Id&quot;: &quot;&quot;,
+					&quot;mrcId&quot;: &quot;&quot;,
+					&quot;progress&quot;: &quot;&quot;
+				}" data-player="{
+					&quot;playerPreference&quot;: &quot;auto&quot;,
+					&quot;language&quot;: &quot;es&quot;,
+					&quot;isSecure&quot;: &quot;True&quot;
+				}" data-episode="{
+					&quot;contentId&quot;: &quot;74e6f1b2-3398-4fe1-a989-a69e011b9f9d&quot;,
+					&quot;length&quot;: &quot;00:03:00&quot;,
+					&quot;api&quot;: &quot;/Entries(guid'74e6f1b2-3398-4fe1-a989-a69e011b9f9d')/&quot;,
+					&quot;relatedApi&quot;: &quot;/Related?id=74e6f1b2-3398-4fe1-a989-a69e011b9f9d&quot;,
+					&quot;isMVA&quot;: &quot;False&quot;
+				}">
+                <div class="play">Play Git Tutorial: Create a Git repo in Visual Studio 2015</div>
+            </a>
+    </div>	
+	<h2>Obtenga la URL de clon de su repositorio</h2>
+
+
+
+
+
+
+	<h2>Guarde Trabajo con Commits</h2>
+	<p>Git no realiza instantáneamente un snapshot de tu código cuando realizas cambios en los archivos de tu repositorio. Debe informar a Git exactamente qué cambios desea agregar a la siguiente instantánea organizando esos cambios. Después de organizar sus cambios, cree un compromiso para guardar la instantánea en su repositorio.</p>
+	<p>En este tutorial, aprendes:</p>
+	<ul>
+	<li>Cómo sigue los cambios de Git</li>
+	<li>Qué hay en un commit</li>
+	<li>Cómo organizar tus cambios</li>
+	<li>Cómo crear un commit</li>
+	<li>Cómo actualizar su último commit</li>
+	</ul>
+	<h2>Crear trabajo en Branches</h2>
+
+
+	<h2>Actualizar código con fetch y pull</h2>
+
+
+	<h2>Revisar código con pull request</h2>
+
+	<p>El flujo de trabajo de Git utiliza ramas para aislar el trabajo hasta que esté listo para fusionar los cambios en su rama predeterminada, como master. La solicitud de extracción es el proceso colaborativo que le permite al resto del equipo hablar sobre los cambios en una sucursal y acordar fusionarlos una vez que todos lo aprueben. Utilice las solicitudes de extracción para obtener retroalimentación temprana de los demás sobre el trabajo en progreso, incluso si no está listo para fusionar los cambios en otra rama.</p>
+	<p><img src="https://docs.microsoft.com/en-us/vsts/git/tutorial/_img/merge.png" alt="Fusionando una rama de Git en su padre a través de una solicitud de extracción" data-linktype="relative-path" class="x-hidden-focus"></p>
+
+	<p>En esta imagen, la rama púrpura se fusiona en la rama azul a través de una solicitud de extracción. Los revisores debaten los cambios en la solicitud de extracción antes de fusionar el código. Cuando completa la solicitud de extracción, hay una confirmación de fusión (aquí se ve como la confirmación azul completada) donde los cambios en la rama púrpura ahora se fusionan en la rama azul.
+	</p>
+	<p>En este tutorial, aprenderá a:</p>
+	<ul>
+		<li>Crear una solicitud de extracción</li>
+		<li>Completa una solicitud de extracción</li>
+	</ul>
+
+
+	<h2>Historial de revisión</h2>
+
+	<p>
+		Git usa la información de referencia principal almacenada en cada commit para administrar un historial completo de su desarrollo. Revise este historial de confirmaciones para saber cuándo se realizaron los cambios en los archivos y determinar las diferencias entre las versiones de su código.
+		<br>
+		<br>
+		El uso de Git de ramas de características y fusiones a través de solicitudes de extracción significa que el historial de confirmación de su desarrollo no forma una línea recta y cronológica. Cuando utiliza el historial para comparar versiones, piense en términos de cambios de archivos entre dos confirmaciones en lugar de cambios de archivos entre dos puntos en el tiempo. Un cambio reciente en un archivo en la masterrama puede haber venido de una confirmación creada hace dos semanas en una rama de características, pero solo se fusionó ayer.
+	</p>
+
+	<p>
+		En este tutorial, aprenderá a:
+	</p>
+
+	<ul>
+		<li>Comparar archivos</li>
+		<li>Recuperar archivos</li>
+		<li>Comparar ramas</li>
+	</ul>
+
+
+</article>
+
+</body>
+</html>
+
